@@ -1,0 +1,24 @@
+{
+  "name": "projectlocal",
+  "version": "1.0.0",
+  "description": "Backend for recommendation system",
+  "main": "server.js",
+
+  "scripts": {
+    "start": "node server.js",
+    "import:tmdb": "node import_tmdb.js",
+    "import:streaming": "node import_streaming.js",
+    "import:books": "node import_googlebooks.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "puppeteer": "^24.23.0",
+    "sqlite3": "^5.1.7"
+  }
+}

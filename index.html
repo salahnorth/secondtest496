@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Database Tables Overview</h1>
+    <div id="content"></div>
+
+    <script>
+      const endpoints = [
+        "users",
+        "items",
+        "movies",
+        "books",
+        "genres",
+        "item_genres",
+        "favourites",
+        "reviews",
+        "ratings",
+        "availability",
+        "sources"
+      ];
+
+      async function load() {
+        const container = document.getElementById("content");
+
+        for (const endpoint of endpoints) {
+          try {
+            const res = await fetch(`http://localhost:3000/${endpoint}`);
+            const data = await res.json();
+
+            const section = document.createElement("section");
+            section.innerHTML = `<h2>${endpoint}</h2><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            container.appendChild(section);
+          } catch (err) {
+            const section = document.createElement("section");
+            section.innerHTML = `<h2>${endpoint}</h2><p style="color:red;">Error fetching data: ${err}</p>`;
+            container.appendChild(section);
+          }
+        }
+      }
+
+      load();
+    </script>
+  </body>
+</html>
+
